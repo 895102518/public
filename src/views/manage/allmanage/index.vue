@@ -161,7 +161,7 @@
 
         <!-- 弹框的组件 -->
         <modifyalert :show.sync="show"  :alertData="alertData" :operatoroptions="operatoroptions" @handleupdata="handleupdata"></modifyalert>
-        <intoexcel :excelshow.sync="excelshow" :excelData="excelData" :operatoroptions="operatoroptions"></intoexcel>
+        <intoexcel :excelshow.sync="excelshow" :excelData="excelData" @getData="getData" :operatoroptions="operatoroptions"></intoexcel>
         <olddata :oldshow.sync="oldshow" :oldlist="oldlist"></olddata>
 
         <!-- 分页器组件 -->
@@ -237,6 +237,7 @@ export default {
         },
         // 得到页面数据
         getData() {
+            console.log('123465')
             this.listLoading = true;
             findPage({ pageIndex : 1, pageSize : 10 }).then(res => {
                 this.listLoading = false;
@@ -285,16 +286,16 @@ export default {
         },
         // 查询历史记录
         handleChangeOld(deviceId){
-            console.log(deviceId,">?<><><><:>:<>:")
             findoldPage({ deviceId:deviceId,pageIndex:1,pageSize:10}).then(res=>{
-                this.oldshow = true;
                 this.oldlist = res.queryResult.dataList;
+                console.log(this.oldlist,"<><><><><><><><><>")
+                this.oldshow = true;
             })
         },
 
         // 在数组中删除当前行
         handleDelAccount(index) {
-            let delTitle = "此操作将删除当前商品,是否继续?";
+            let delTitle = "此操作将删除当前设备,是否继续?";
             let delDesc = "删除成功";
             this.$confirm( delTitle,"提示", {
                 confirmButtonText: "确定",

@@ -1,7 +1,7 @@
 <template>
     <div>
         <!-- changeResult，changeTime，checkResult，deviceId -->
-        <el-dialog :visible="show" @close="close" title="修改接入商信息" :close-on-click-modal= 'clickmodal'>
+        <el-dialog :visible="show" @close="close" title="修改设备信息" :close-on-click-modal= 'clickmodal'>
             <el-form ref="form" :model="alertData" label-width="200px" >
                 <el-form-item label="设备所属类别" style="width:505px" prop="down_amount">
                     <el-select v-model="alertData.categoryId" placeholder="请选择">
@@ -81,7 +81,12 @@
                     <!-- <el-input v-model="alertData.deviceStatusStr"></el-input> -->
                 </el-form-item>
                 <el-form-item label="设备升井时间" style="width:550px;">
-                    <el-input v-model="alertData.deviceUpTime"></el-input>
+                    <el-date-picker
+                        v-model="alertData.deviceUpTime"
+                        type="date"
+                        value-format="yyyy-MM-dd"
+                        placeholder="选择日期"
+                    ></el-date-picker>
                 </el-form-item>
                 <el-form-item label="备注" style="width:550px;">
                     <el-input v-model="alertData.remark"></el-input>

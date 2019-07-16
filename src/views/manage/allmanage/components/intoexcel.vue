@@ -4,7 +4,7 @@
         <el-dialog
             :visible="excelshow"
             @close="close"
-            title="修改接入商信息"
+            title="导入excel表格"
             :close-on-click-modal="clickmodal"
         >
             <span>请选择所添加的类别</span>
@@ -80,6 +80,7 @@ export default {
             this.fileList = []
             this.close()
             this.$message({ message: "上传成功", type: "success" });
+            this.$emit('getData',1)
         },
 
         handleRemove(file, fileList) {

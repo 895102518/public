@@ -1,6 +1,6 @@
 <template>
   <div class="dashboard-container">
-    设备管理信息平台
+    中煤五建二处高河项目部设备管理信息平台
   </div>
 </template>
 

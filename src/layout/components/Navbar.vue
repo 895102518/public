@@ -7,11 +7,11 @@
     <div class="right-menu">
       <el-dropdown class="avatar-container" trigger="click">
         <div class="avatar-wrapper">
-          <img :src="avatar+'?imageView2/1/w/80/h/80'" class="user-avatar">
+          <img src="../../../public/logo_1.png" class="user-avatar">
           <i class="el-icon-caret-bottom" />
         </div>
         <el-dropdown-menu slot="dropdown" class="user-dropdown">
-          <el-dropdown-item divided>
+          <el-dropdown-item >
             <span style="display:block;" @click="logout">退出登录</span>
           </el-dropdown-item>
         </el-dropdown-menu>
@@ -41,8 +41,8 @@ export default {
       this.$store.dispatch('app/toggleSideBar')
     },
     async logout() {
-      await this.$store.dispatch('user/logout')
-      this.$router.push(`/login?redirect=${this.$route.fullPath}`)
+      // await this.$store.dispatch('user/logout')
+      this.$router.push(`/login`)
     }
   }
 }
@@ -109,7 +109,7 @@ export default {
 
         .user-avatar {
           cursor: pointer;
-          width: 40px;
+          width: 238px;
           height: 40px;
           border-radius: 10px;
         }

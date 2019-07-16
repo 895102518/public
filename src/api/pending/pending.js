@@ -27,10 +27,10 @@ export function upcomingdelete(params={}) {
   }
 
 // 修改信息
-export function edit(params={}) {
+export function editdata(data={}) {
   return request({
     url: '/upcoming/edit',
-    method: 'get',
-    params
+    method: 'post',
+    data
   })
 }

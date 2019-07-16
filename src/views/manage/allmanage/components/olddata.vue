@@ -12,6 +12,7 @@
                 style="margin-top:20px"
                 border
                 fit
+                :data="oldlist"
                 highlight-current-row
                 element-loading-text="Loading"
             >
@@ -114,10 +115,27 @@
 
 <script>
 export default {
+    filters: {
+        setStayusColor(status) {
+            let color = "";
+            switch (status) {
+                case "在用":
+                    color = "success";
+                    break;
+                case "备用":
+                    color = "warning";
+                    break;
+                case "闲置":
+                    color = "danger";
+                    break;
+            }
+            return color;
+        }
+    },
     data() {
         return {
             clickmodal: false,
-            deviceName: "1231231"
+            deviceName: ""
         };
     },
     props: {

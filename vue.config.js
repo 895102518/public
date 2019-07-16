@@ -37,7 +37,6 @@ module.exports = {
       errors: true
     },
     proxy: {
-      // change xxx-api/login => mock/login
       // detail: https://cli.vuejs.org/config/#devserver-proxy
       '/api': {
         target: `http://123.206.57.129:8080/cc5c`,  //接口前置域名
@@ -47,7 +46,6 @@ module.exports = {
         }
       }
     },
-    after: require('./mock/mock-server.js')
   },
   configureWebpack: {
     // provide the app's title in webpack's name field, so that

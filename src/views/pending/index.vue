@@ -134,7 +134,7 @@
 </template>
 
 <script>
-import { findPage, findOne, upcomingdelete, edit } from "@/api/pending/pending";
+import { findPage, findOne, upcomingdelete, editdata } from "@/api/pending/pending";
 import modifyalert from "./components/modifyalert";
 import pagination from "@/components/Pagination";
 
@@ -204,20 +204,19 @@ export default {
                 this.$message({ message: "请填写完整", type: "warning" });
                 return;
             }
-            console.log(e, "<><><><><><><");
-            // edit(e).then(res => {
-            //     this.getData();
-            //     this.show = false;
-            //     this.$message({
-            //         message: "修改成功",
-            //         type: "success"
-            //     });
-            // });
+            editdata(e).then(res => {
+                this.getData();
+                this.show = false;
+                this.$message({
+                    message: "修改成功",
+                    type: "success"
+                });
+            });
         },
 
         // 在数组中删除当前行
         handleDelAccount(index) {
-            let delTitle = "此操作将删除当前商品,是否继续?";
+            let delTitle = "此操作将删除当前代办设备,是否继续?";
             let delDesc = "删除成功";
             this.$confirm(delTitle, "提示", {
                 confirmButtonText: "确定",
